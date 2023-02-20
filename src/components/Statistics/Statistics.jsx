@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Notification } from 'components/Notification/Notification';
 
 export function Statistics({ good, neutral, bad, total, positivePercentage }) {
-  return good || neutral || bad ? (
+  return total ? (
     <>
       <p> Good: {good} </p>
       <p> Neutral: {neutral} </p>

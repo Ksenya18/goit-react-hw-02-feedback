@@ -17,19 +17,14 @@
  };
 
  countTotalFeedback = () => {
-   const arr = Object.values(this.state);
-   return arr[0] + arr[1] + arr[2];
+   const { bad, good, neutral} = this.state;
+   return bad + good + neutral;
  };
 
  countPositiveFeedbackPercentage = () => {
-   if (this.countTotalFeedback()) {
-     return Math.round(
-       (Number(this.state.good) / this.countTotalFeedback()) * 100
-     );
-   } else {
-     return 0;
-  }
- };
+  const total = this.countTotalFeedback();
+  return Math.round((this.state.good / total) * 100) || 0;
+};
 
  render() {
    const total = this.countTotalFeedback();
